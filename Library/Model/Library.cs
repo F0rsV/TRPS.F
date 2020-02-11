@@ -5,12 +5,13 @@ namespace Library.Model
 {
     public class Library
     {
-        public List<Book> ListOfBooks { get; set; }
-        public List<Client> ListOfClients { get; set; }
+        public BookManager BookManager { get; set; }
+        public ClientManager ClientManager { get; set; }
 
         public Library()
         {
-
+            BookManager = new BookManager();
+            ClientManager = new ClientManager();
         }
     }
 }
