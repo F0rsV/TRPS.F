@@ -7,6 +7,7 @@ namespace Library.Model
     {
         public BookManager BookManager { get; set; }
         public ClientManager ClientManager { get; set; }
+        
 
         public Library()
         {

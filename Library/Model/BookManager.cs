@@ -13,36 +13,21 @@ namespace Library.Model
         }
 
 
-        public Book FindBook(int idSearch)
+        public List<Book> FindBooks(int id)
         {
-            return ListOfBooks.Find(x => x.Id == idSearch);
+            return ListOfBooks.FindAll(x => x.Id == id);
         }
 
-        public List<Book> FindBook(string nameSearch)
+        public List<Book> FindBooks(string name)
         {
-            return ListOfBooks.FindAll(x => x.Name == nameSearch);
+            return ListOfBooks.FindAll(x => x.Name == name);
         }
 
-        public List<Book> FindBook(/*Author authorSearch*/)
+        public List<Book> FindBooks(Author author)
         {
-            //return ListOfBooks.FindAll(x => x.Author == authorSearch);
-            return ListOfBooks; // CHANGE
+            return ListOfBooks.FindAll(x => x.Author == author);
         }
 
-
-        // ПИТАННЯ ВИКЛАДАЧУ: ПошукКниги краще реалізувати так, як це зроблено зверху (перевантаження методу, чи наступним чином:
-
-        public List<Book> FindBooks(int idSearch = -1, string nameSearch = "", string authorSearch = "")
-        {
-            if (idSearch >= 0)
-                return ListOfBooks.FindAll(x => x.Id == idSearch);
-            if (nameSearch != "")
-                return ListOfBooks.FindAll(x => x.Name == nameSearch);
-            if (authorSearch != "")
-                return ListOfBooks.FindAll(x => x.Author == authorSearch);
-
-            return new List<Book>();
-        }
 
     }
 }

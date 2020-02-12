@@ -51,8 +51,8 @@
                         <TextBlock Grid.Row="0" Grid.Column="0" TextAlignment="Center">Результати пошуку клієнта</TextBlock>
                         <TextBlock Grid.Row="0" Grid.Column="1" TextAlignment="Center">Книги обраного клієнта</TextBlock>
 
-                        <ListBox Grid.Row="1" Grid.Column="0">ТУТ БУДЕ ЛІСТ1</ListBox>
-                        <ListBox Grid.Row="1" Grid.Column="1">ТУТ БУДЕ ЛІСТ2</ListBox>
+                        <ListBox Grid.Row="1" Grid.Column="0"></ListBox>
+                        <ListBox Grid.Row="1" Grid.Column="1"></ListBox>
 
                     </Grid>
                 </Grid>
@@ -82,9 +82,9 @@
                             <TextBlock>за автором</TextBlock>
                         </ComboBox>
 
-                        <TextBox Grid.Column="1" Margin="5 5 5 5"></TextBox>
+                        <TextBox Name="TextBoxBookSearch" Grid.Column="1" Margin="5 5 5 5"></TextBox>
 
-                        <Button Grid.Column="2">Пошук Клієнта</Button>
+                        <Button Grid.Column="2">Пошук Книги</Button>
 
                     </Grid>
 
@@ -96,7 +96,7 @@
 
                         <TextBlock Grid.Row="0" TextAlignment="Center">Результати пошуку книги</TextBlock>
 
-                        <ListBox Grid.Row="1" Margin="20 5 20 10">ТУТ БУДЕ ЛІСТ1</ListBox>
+                        <ListBox Grid.Row="1" Margin="20 5 20 10"></ListBox>
 
                     </Grid>
                 </Grid>

@@ -12,7 +12,12 @@ namespace Library.Model
 
         public Client()
         {
-            
+            BooksList = new List<Book>();
+        }
+
+        public List<Book> GetBooksThatClientHas()
+        {
+            return BooksList;
         }
     }
 }

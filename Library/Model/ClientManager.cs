@@ -13,27 +13,15 @@ namespace Library.Model
         }
 
 
-        public Client FindClient(int libraryCardIdSearch)
+        public List<Client> FindClients(int libraryCardId)
         {
-            return ListOfClients.Find(x => x.LibraryCardId == libraryCardIdSearch);
+            return ListOfClients.FindAll(x => x.LibraryCardId == libraryCardId);
         }
 
-        public List<Client> FindClient(string nameSearch)
+        public List<Client> FindClients(string name)
         {
-            return ListOfClients.FindAll(x => x.Name == nameSearch);
+            return ListOfClients.FindAll(x => x.Name == name);
         }
 
-        /*
-            ПИТАННЯ ВИКЛАДАЧУ
-
-            Метод GetBooksThatClientHas() краще реалізувати у класі:
-            a) ClientManager (в якості аргумента буде передаватись екзмпляр класу Client)
-            b) Client (тоді, в якості аргументу не потрібно буде передавати нічого)
-        */
-
-        public List<Book> GetBooksThatClientHas(Client client)
-        {
-            return client.BooksList;
-        }
     }
 }

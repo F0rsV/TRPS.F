@@ -12,7 +12,7 @@ namespace Library.Model
     public class Book
     {
         public string Name { get; set; }
-        public string Author { get; set; } //change
+        public Author Author { get; set; }
         public BookTheme Theme { get; set; }
         public int Id { get; set; }
 
