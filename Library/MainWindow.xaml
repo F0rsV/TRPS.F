@@ -16,10 +16,6 @@
                         <RowDefinition Height="40"></RowDefinition>
                         <RowDefinition></RowDefinition>
                     </Grid.RowDefinitions>
-                        
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition></ColumnDefinition>
-                    </Grid.ColumnDefinitions>
 
                     <Grid Grid.Row ="0" ShowGridLines="True">
                         <Grid.ColumnDefinitions>
@@ -28,7 +24,12 @@
                             <ColumnDefinition></ColumnDefinition>
                         </Grid.ColumnDefinitions>
 
-                        <TextBlock Grid.Column="0"> ВОТ ТУТ СДЕЛАТЬ ПЕРЕКЛЮЧАТЕЛЬ</TextBlock>
+                        <ComboBox SelectedIndex="0" Grid.Column="0" HorizontalAlignment="Stretch"
+                                  VerticalAlignment="Center"
+                                  Margin="5 5 5 5">
+                            <TextBlock>за номером читацького квитка</TextBlock>
+                            <TextBlock>за ПІБ</TextBlock>
+                        </ComboBox>
 
                         <TextBox Grid.Column="1" Margin="5 5 5 5"></TextBox>
 
@@ -47,7 +48,7 @@
                             <ColumnDefinition></ColumnDefinition>
                         </Grid.ColumnDefinitions>
 
-                        <TextBlock Grid.Row="0" Grid.Column="0" TextAlignment="Center">Клієнти</TextBlock>
+                        <TextBlock Grid.Row="0" Grid.Column="0" TextAlignment="Center">Результати пошуку клієнта</TextBlock>
                         <TextBlock Grid.Row="0" Grid.Column="1" TextAlignment="Center">Книги обраного клієнта</TextBlock>
 
                         <ListBox Grid.Row="1" Grid.Column="0">ТУТ БУДЕ ЛІСТ1</ListBox>
@@ -60,7 +61,45 @@
         <TabItem>
             <TabItem.Header>Пошук Книги</TabItem.Header>
             <TabItem.Content>
-                НЕ ТУТ
+                <Grid ShowGridLines="True">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="40"></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                    </Grid.RowDefinitions>
+
+                    <Grid Grid.Row ="0" ShowGridLines="True">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition></ColumnDefinition>
+                            <ColumnDefinition></ColumnDefinition>
+                            <ColumnDefinition></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+
+                        <ComboBox SelectedIndex="0" Grid.Column="0" HorizontalAlignment="Stretch"
+                                  VerticalAlignment="Center"
+                                  Margin="5 5 5 5">
+                            <TextBlock>за бібліотечним номером</TextBlock>
+                            <TextBlock>за назвою</TextBlock>
+                            <TextBlock>за автором</TextBlock>
+                        </ComboBox>
+
+                        <TextBox Grid.Column="1" Margin="5 5 5 5"></TextBox>
+
+                        <Button Grid.Column="2">Пошук Клієнта</Button>
+
+                    </Grid>
+
+                    <Grid Grid.Row="1" ShowGridLines="True">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="40"></RowDefinition>
+                            <RowDefinition></RowDefinition>
+                        </Grid.RowDefinitions>
+
+                        <TextBlock Grid.Row="0" TextAlignment="Center">Результати пошуку книги</TextBlock>
+
+                        <ListBox Grid.Row="1" Margin="20 5 20 10">ТУТ БУДЕ ЛІСТ1</ListBox>
+
+                    </Grid>
+                </Grid>
             </TabItem.Content>
         </TabItem>
 
