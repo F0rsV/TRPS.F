@@ -18,9 +18,9 @@ namespace Library.Model
             return ListOfClients.Find(x => x.LibraryCardId == libraryCardIdSearch);
         }
 
-        public Client FindClient(string nameSearch)
+        public List<Client> FindClient(string nameSearch)
         {
-            return ListOfClients.Find(x => x.Name == nameSearch);
+            return ListOfClients.FindAll(x => x.Name == nameSearch);
         }
 
         /*
