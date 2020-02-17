@@ -9,8 +9,9 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using Library.Data;
 using Library.Model;
-using MessageBox = System.Windows.MessageBox;
+
 
 
 namespace Library.View
@@ -20,9 +21,16 @@ namespace Library.View
     /// </summary>
     public partial class BaseWindow : Window
     {
+        private LibraryManager libraryManager;
+        private IDataLoader dataLoader;
+
         public BaseWindow()
         {
+            dataLoader = new DataLoader();
+            libraryManager = (LibraryManager)dataLoader.LoadData();
+
             InitializeComponent();
         }
+
     }
 }

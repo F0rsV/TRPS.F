@@ -8,9 +8,9 @@ namespace Library.Model
         public string FullName { get; set; }
         //and so on...
 
-        public Author()
+        public Author(string fullName)
         {
-
+            FullName = fullName;
         }
         
     }

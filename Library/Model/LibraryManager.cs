@@ -3,13 +3,13 @@ using System.Collections.Generic;
 
 namespace Library.Model
 {
-    public class Library
+    public class LibraryManager
     {
         public BookManager BookManager { get; set; }
         public ClientManager ClientManager { get; set; }
         
 
-        public Library()
+        public LibraryManager()
         {
             BookManager = new BookManager();
             ClientManager = new ClientManager();

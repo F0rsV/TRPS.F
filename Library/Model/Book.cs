@@ -16,9 +16,12 @@ namespace Library.Model
         public BookTheme Theme { get; set; }
         public int Id { get; set; }
 
-        public Book()
+        public Book(string name, Author author, BookTheme theme, int id)
         {
-
+            Name = name;
+            Author = author;
+            Theme = theme;
+            Id = id;
         }
     }
 }

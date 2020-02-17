@@ -10,11 +10,16 @@ namespace Library.Model
         public int PassportId { get; set; }
         public List<Book> BooksList { get; set; }
 
-        public Client()
+        public Client(int libraryCardId, string name, int passportId)
         {
             BooksList = new List<Book>();
+
+            LibraryCardId = libraryCardId;
+            Name = name;
+            PassportId = passportId;
         }
 
+        //maybe delete this sh
         public List<Book> GetBooksThatClientHas()
         {
             return BooksList;
