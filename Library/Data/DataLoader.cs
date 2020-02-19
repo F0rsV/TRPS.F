@@ -4,7 +4,7 @@ namespace Library.Data
 {
     public class DataLoader : IDataLoader
     {
-        public object LoadData()
+        public object LoadData(string path)
         {
             LibraryManager libraryManager = new LibraryManager();
 

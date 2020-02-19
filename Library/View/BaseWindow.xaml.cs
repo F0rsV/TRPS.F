@@ -22,13 +22,10 @@ namespace Library.View
     public partial class BaseWindow : Window
     {
         private LibraryManager libraryManager;
-        private IDataLoader dataLoader;
 
         public BaseWindow()
         {
-            dataLoader = new DataLoader();
-            libraryManager = (LibraryManager)dataLoader.LoadData();
-
+            libraryManager = new LibraryManager("data.txt");
             InitializeComponent();
         }
 

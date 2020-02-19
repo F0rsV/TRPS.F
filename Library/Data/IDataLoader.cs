@@ -2,6 +2,6 @@
 {
     public interface IDataLoader
     {
-        object LoadData();
+        object LoadData(string path);
     }
 }
