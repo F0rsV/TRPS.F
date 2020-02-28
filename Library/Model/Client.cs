@@ -18,11 +18,5 @@ namespace Library.Model
             Name = name;
             PassportId = passportId;
         }
-
-        //maybe delete this sh
-        public List<Book> GetBooksThatClientHas()
-        {
-            return BooksList;
-        }
     }
 }

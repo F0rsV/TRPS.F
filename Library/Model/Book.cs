@@ -1,4 +1,6 @@
 ﻿using System;
+using System.ComponentModel;
+using System.Runtime.CompilerServices;
 
 namespace Library.Model
 {
@@ -16,6 +18,7 @@ namespace Library.Model
         public BookTheme Theme { get; set; }
         public int Id { get; set; }
 
+
         public Book(string name, Author author, BookTheme theme, int id)
         {
             Name = name;
@@ -23,5 +26,6 @@ namespace Library.Model
             Theme = theme;
             Id = id;
         }
+
     }
 }

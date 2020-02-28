@@ -25,7 +25,8 @@ namespace Library.View
 
         public BaseWindow()
         {
-            libraryManager = new LibraryManager("data.txt");
+            libraryManager = new LibraryManager("data.txt", new DataLoader());
+            DataContext = libraryManager;
             InitializeComponent();
         }
 

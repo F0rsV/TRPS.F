@@ -1,30 +1,33 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
+using System.Runtime.CompilerServices;
 using Library.Data;
+using Library.ViewModel;
 
 namespace Library.Model
 {
     public class LibraryManager
     {
-        public BookManager BookManager { get; set; }
-        public ClientManager ClientManager { get; set; }
         private readonly IDataLoader dataLoader;
-
+        public ClientViewModel ClientViewModel { get; set; }
+        public BookViewModel BookViewModel { get; set; }
 
         public LibraryManager()
         {
-            BookManager = new BookManager();
-            ClientManager = new ClientManager();
+            ClientViewModel = new ClientViewModel();;
+            BookViewModel = new BookViewModel();
         }
 
-        public LibraryManager(string path)
+        public LibraryManager(string path, IDataLoader dL)
         {
-            dataLoader = new DataLoader();
+            this.dataLoader = dL;
             LibraryManager libraryManager = (LibraryManager)dataLoader.LoadData(path);
 
-            BookManager = libraryManager.BookManager;
-            ClientManager = libraryManager.ClientManager;
+            ClientViewModel = libraryManager.ClientViewModel;
+            BookViewModel = libraryManager.BookViewModel;
         }
+
 
 
     }

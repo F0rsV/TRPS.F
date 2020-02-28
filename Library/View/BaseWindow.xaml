@@ -26,14 +26,15 @@
 
                         <ComboBox SelectedIndex="0" Grid.Column="0" HorizontalAlignment="Stretch"
                                   VerticalAlignment="Center"
-                                  Margin="5 5 5 5">
+                                  Margin="5 5 5 5"
+                                  Text="{Binding ClientViewModel.ClientSearchFilter}">
                             <TextBlock>за номером читацького квитка</TextBlock>
                             <TextBlock>за ПІБ</TextBlock>
                         </ComboBox>
 
-                        <TextBox Grid.Column="1" Margin="5 5 5 5"></TextBox>
+                        <TextBox Grid.Column="1" Margin="5 5 5 5" Text="{Binding ClientViewModel.ClientSearchInput}"></TextBox>
 
-                        <Button Grid.Column="2">Пошук Клієнта</Button>
+                        <Button Grid.Column="2" Command="{Binding ClientViewModel.FindClientCommand}">Пошук Клієнта</Button>
 
                     </Grid>
 
@@ -51,8 +52,29 @@
                         <TextBlock Grid.Row="0" Grid.Column="0" TextAlignment="Center">Результати пошуку клієнта</TextBlock>
                         <TextBlock Grid.Row="0" Grid.Column="1" TextAlignment="Center">Книги обраного клієнта</TextBlock>
 
-                        <ListBox Grid.Row="1" Grid.Column="0"></ListBox>
-                        <ListBox Grid.Row="1" Grid.Column="1"></ListBox>
+                        <ListBox Grid.Row="1" Grid.Column="0"
+                                 ItemsSource="{Binding ClientViewModel.ListOfSearchedClients}"
+                                 SelectedItem="{Binding ClientViewModel.SelectedClient}">
+                            <ListBox.ItemTemplate>
+                                <DataTemplate>
+                                    <StackPanel Margin="5">
+                                        <TextBlock FontSize="18" Text="{Binding Path=Name}" />
+                                        <TextBlock Text="{Binding Path=LibraryCardId}" />
+                                    </StackPanel>
+                                </DataTemplate>
+                            </ListBox.ItemTemplate>
+                        </ListBox>
+
+                        <ListBox Grid.Row="1" Grid.Column="1" ItemsSource="{Binding ClientViewModel.SelectedClient.BooksList}">
+                            <ListBox.ItemTemplate>
+                                <DataTemplate>
+                                    <StackPanel Margin="5">
+                                        <TextBlock FontSize="18" Text="{Binding Path=Name}" />
+                                        <TextBlock Text="{Binding Path=Author.FullName}" />
+                                    </StackPanel>
+                                </DataTemplate>
+                            </ListBox.ItemTemplate>
+                        </ListBox>
 
                     </Grid>
                 </Grid>
@@ -76,15 +98,22 @@
 
                         <ComboBox SelectedIndex="0" Grid.Column="0" HorizontalAlignment="Stretch"
                                   VerticalAlignment="Center"
-                                  Margin="5 5 5 5">
+                                  Margin="5 5 5 5"
+                                  Text="{Binding BookViewModel.BookSearchFilter}">
                             <TextBlock>за бібліотечним номером</TextBlock>
                             <TextBlock>за назвою</TextBlock>
                             <TextBlock>за автором</TextBlock>
                         </ComboBox>
 
-                        <TextBox Name="TextBoxBookSearch" Grid.Column="1" Margin="5 5 5 5"></TextBox>
+                        <TextBox Name="TextBoxBookSearch" Grid.Column="1" Margin="5 5 5 5"
+                                 Text="{Binding BookViewModel.BookSearchInput, UpdateSourceTrigger=PropertyChanged}">
+                        </TextBox>
 
-                        <Button Grid.Column="2">Пошук Книги</Button>
+                        <Button Grid.Column="1"
+                                Command="{Binding BookViewModel.FindBookCommand}" Grid.ColumnSpan="2" Height="40"
+                                Margin="264,0,0,0" VerticalAlignment="Top">
+                            Пошук Книги
+                        </Button>
 
                     </Grid>
 
@@ -96,7 +125,16 @@
 
                         <TextBlock Grid.Row="0" TextAlignment="Center">Результати пошуку книги</TextBlock>
 
-                        <ListBox Grid.Row="1" Margin="20 5 20 10"></ListBox>
+                        <ListBox Grid.Row="1" Margin="20 5 20 10" ItemsSource="{Binding BookViewModel.ListOfSearchedBooks}" SelectedItem="{Binding BookViewModel.SelectedBook}">
+                            <ListBox.ItemTemplate>
+                                <DataTemplate>
+                                    <StackPanel Margin="5">
+                                        <TextBlock FontSize="18" Text="{Binding Path=Name}" />
+                                        <TextBlock Text="{Binding Path=Author.FullName}" />
+                                    </StackPanel>
+                                </DataTemplate>
+                            </ListBox.ItemTemplate>
+                        </ListBox>
 
                     </Grid>
                 </Grid>
