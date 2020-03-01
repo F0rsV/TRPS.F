@@ -1,7 +1,7 @@
 ﻿namespace Library.Data
 {
-    public interface IDataLoader
+    public interface IDataLoader<T>
     {
-        object LoadData(string path);
+        T LoadData(string path);
     }
 }

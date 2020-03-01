@@ -21,11 +21,13 @@ namespace Library.View
     /// </summary>
     public partial class BaseWindow : Window
     {
-        private LibraryManager libraryManager;
+        private readonly LibraryManager libraryManager;
 
         public BaseWindow()
         {
-            libraryManager = new LibraryManager("data.txt", new DataLoader());
+            libraryManager = new LibraryManager();
+            libraryManager = libraryManager.DataLoader.LoadData("data.json");
+
             DataContext = libraryManager;
             InitializeComponent();
         }

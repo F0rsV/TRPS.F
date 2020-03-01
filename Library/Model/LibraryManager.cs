@@ -9,26 +9,17 @@ namespace Library.Model
 {
     public class LibraryManager
     {
-        private readonly IDataLoader dataLoader;
         public ClientViewModel ClientViewModel { get; set; }
         public BookViewModel BookViewModel { get; set; }
+        public IDataLoader<LibraryManager> DataLoader { get; set; }
 
+        
         public LibraryManager()
         {
             ClientViewModel = new ClientViewModel();;
             BookViewModel = new BookViewModel();
+            DataLoader = new DataLoader<LibraryManager>();
         }
-
-        public LibraryManager(string path, IDataLoader dL)
-        {
-            this.dataLoader = dL;
-            LibraryManager libraryManager = (LibraryManager)dataLoader.LoadData(path);
-
-            ClientViewModel = libraryManager.ClientViewModel;
-            BookViewModel = libraryManager.BookViewModel;
-        }
-
-
 
     }
 }
