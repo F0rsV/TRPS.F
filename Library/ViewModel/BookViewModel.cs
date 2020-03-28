@@ -10,7 +10,10 @@ namespace Library.ViewModel
 {
     public class BookViewModel : INotifyPropertyChanged
     {
-        public List<Book> ListOfBooks { get; set; }
+        //public List<Book> ListOfBooks { get; set; }
+        private readonly Business.IBookService bookService;
+
+
         public ObservableCollection<Book> ListOfSearchedBooks { get; set; }
 
         private Book selectedBook;
@@ -59,15 +62,22 @@ namespace Library.ViewModel
 
                         if (BookSearchFilter == "за бібліотечним номером")
                         {
-                            searchedList = ListOfBooks.FindAll(x => x.Id == Convert.ToInt32(BookSearchInput));
+                            //searchedList = ListOfBooks.FindAll(x => x.Id == Convert.ToInt32(BookSearchInput));
+
+                            int searchId = Convert.ToInt32(BookSearchInput);
+                            searchedList = bookService.FindById(searchId);
                         }
                         else if (BookSearchFilter == "за назвою")
                         {
-                            searchedList = ListOfBooks.FindAll(x => x.Name == BookSearchInput);
+                            //searchedList = ListOfBooks.FindAll(x => x.Name == BookSearchInput);
+
+                            searchedList = bookService.FindByName(BookSearchInput);
                         }
                         else if (BookSearchFilter == "за автором")
                         {
-                            searchedList = ListOfBooks.FindAll(x => x.Author.FullName == BookSearchInput);
+                            //searchedList = ListOfBooks.FindAll(x => x.Author.FullName == BookSearchInput);
+
+                            searchedList = bookService.FindByAuthor(BookSearchInput);
                         }
 
                         searchedList.ForEach(x => ListOfSearchedBooks.Add(x));
@@ -77,9 +87,11 @@ namespace Library.ViewModel
         }
 
 
-        public BookViewModel()
+        public BookViewModel(Business.IBookService bookService)
         {
-            ListOfBooks = new List<Book>();
+            //ListOfBooks = new List<Book>();
+            this.bookService = bookService;
+
             ListOfSearchedBooks = new ObservableCollection<Book>();
         }
 

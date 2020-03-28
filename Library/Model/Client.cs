@@ -1,22 +1,22 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.ComponentModel.DataAnnotations;
+using System.Text;
 
 namespace Library.Model
 {
     public class Client
     {
-        public int LibraryCardId { get; set; }
+        public int Id { get; set; }
         public string Name { get; set; }
         public int PassportId { get; set; }
         public List<Book> BooksList { get; set; }
 
-        public Client(int libraryCardId, string name, int passportId)
+
+        public Client()
         {
             BooksList = new List<Book>();
-
-            LibraryCardId = libraryCardId;
-            Name = name;
-            PassportId = passportId;
         }
     }
 }

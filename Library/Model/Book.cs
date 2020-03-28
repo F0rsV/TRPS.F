@@ -1,31 +1,19 @@
 ﻿using System;
-using System.ComponentModel;
-using System.Runtime.CompilerServices;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+using System.Text;
 
 namespace Library.Model
 {
-    public enum BookTheme
-    {
-        Fiction,
-        Romance,
-        Poem
-    }
-
     public class Book
     {
-        public string Name { get; set; }
-        public Author Author { get; set; }
-        public BookTheme Theme { get; set; }
+
         public int Id { get; set; }
 
-
-        public Book(string name, Author author, BookTheme theme, int id)
-        {
-            Name = name;
-            Author = author;
-            Theme = theme;
-            Id = id;
-        }
+        public string Name { get; set; }
+        public Author Author { get; set; }
 
     }
 }
