@@ -1,11 +1,13 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using Microsoft.EntityFrameworkCore;
 
 namespace Library.Data
 {
     public class BookRepository : IRepository<Model.Book>
     {
         private LibraryContext context;
+
 
         public BookRepository(LibraryContext context)
         {
@@ -14,7 +16,7 @@ namespace Library.Data
 
         public IEnumerable<Model.Book> GetAll()
         {
-            return context.Books.ToList();
+            return context.Books.Include(p => p.Author).ToList();
         }
     }
 }

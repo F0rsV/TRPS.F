@@ -9,7 +9,6 @@ namespace Library.ViewModel
 {
     public class ClientViewModel : INotifyPropertyChanged
     {
-        //public List<Client> ListOfClients { get; set; }
         private readonly Business.IClientService clientService;
 
         public ObservableCollection<Client> ListOfSearchedClients { get; set; }
@@ -61,30 +60,22 @@ namespace Library.ViewModel
 
                         if (ClientSearchFilter == "за номером читацького квитка")
                         {
-                            //searchedList = ListOfClients.FindAll(x => x.Id == Convert.ToInt32(ClientSearchInput));
-
-                            int searchId = Convert.ToInt32(ClientSearchInput);
-                            searchedList = clientService.FindById(searchId);
+                            searchedList = clientService.FindById(ClientSearchInput);
                         }
                         else if (ClientSearchFilter == "за ПІБ")
                         {
-                            //searchedList = ListOfClients.FindAll(x => x.Name == ClientSearchInput);
-
                             searchedList = clientService.FindByName(ClientSearchInput);
                         }
 
                         searchedList.ForEach(x => ListOfSearchedClients.Add(x));
-                    },
-                    obj => true); //СДЕЛАТЬ ВАЛІДЕЙШ
+                    });
             }
         }
 
 
 
-
         public ClientViewModel(Business.IClientService clientService)
         {
-            //ListOfClients = new List<Client>();
             this.clientService = clientService;
 
             ListOfSearchedClients = new ObservableCollection<Client>();

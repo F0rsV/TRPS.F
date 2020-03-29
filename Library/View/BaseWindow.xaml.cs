@@ -10,8 +10,6 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
-using Library.Business;
-using Library.Data;
 using Microsoft.EntityFrameworkCore;
 
 
@@ -49,19 +47,15 @@ namespace Library.View
 
             //Books.Include(p => p.Author).*вся фігня далі*
 
-            string name = libraryContext.Books.Include(p => p.Author).ToList()[0].Author.FullName;
-
-            //MessageBox.Show(name);
-
             ;
 
-            Data.IUnitOfWork unitOfWork = new UnitOfWork(libraryContext);
+            Data.IUnitOfWork unitOfWork = new Data.UnitOfWork(libraryContext);
 
-            Business.IClientService clientService = new ClientService(unitOfWork);
-            Business.IBookService bookService = new BookService(unitOfWork);
-
+            Business.IClientService clientService = new Business.ClientService(unitOfWork);
+            Business.IBookService bookService = new Business.BookService(unitOfWork);
 
             DataContext = new ViewModel.BaseWindowViewModel(clientService, bookService);
+
             InitializeComponent();
         }
 

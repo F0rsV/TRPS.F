@@ -31,8 +31,6 @@ namespace Library.Data
             //base.OnModelCreating(modelBuilder); FLUENT API
             //https://metanit.com/sharp/entityframeworkcore/2.14.php Додавання початкових даних
 
-
-
         }
 
     }

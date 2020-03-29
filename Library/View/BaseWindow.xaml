@@ -59,7 +59,7 @@
                                 <DataTemplate>
                                     <StackPanel Margin="5">
                                         <TextBlock FontSize="18" Text="{Binding Path=Name}" />
-                                        <TextBlock Text="{Binding Path=LibraryCardId}" />
+                                        <TextBlock Text="{Binding Path=Id}" />
                                     </StackPanel>
                                 </DataTemplate>
                             </ListBox.ItemTemplate>

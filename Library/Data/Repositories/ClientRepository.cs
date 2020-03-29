@@ -15,6 +15,8 @@ namespace Library.Data
         public IEnumerable<Model.Client> GetAll()
         {
             return context.Clients.ToList();
+            //return context.Clients.Include(p => p.BooksList).ToList();
+
         }
     }
 }
