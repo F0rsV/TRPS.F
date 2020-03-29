@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using Library.Model;
 
 namespace Library.Business
 {
@@ -14,7 +13,7 @@ namespace Library.Business
             this.unit = unit;
         }
 
-        public List<Book> FindById(string id)
+        public List<Model.Book> FindById(string id)
         {
             int searchId = -1;
             if (!string.IsNullOrEmpty(id) && id.All(char.IsDigit))
@@ -25,15 +24,14 @@ namespace Library.Business
             return unit.BookRepository.GetAll().ToList().FindAll(x => x.Id == searchId);
         }
 
-        public List<Book> FindByName(string name)
+        public List<Model.Book> FindByName(string name)
         {
             return unit.BookRepository.GetAll().ToList().FindAll(x => x.Name == name);
         }
 
-        public List<Book> FindByAuthor(string authorName)
+        public List<Model.Book> FindByAuthor(string authorName)
         {
             return unit.BookRepository.GetAll().ToList().FindAll(x => x.Author.FullName == authorName);
-
         }
     }
 }

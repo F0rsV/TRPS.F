@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.ComponentModel.DataAnnotations;
-using System.Text;
+﻿using System.Collections.Generic;
 
 namespace Library.Model
 {
@@ -12,7 +8,6 @@ namespace Library.Model
         public string Name { get; set; }
         public int PassportId { get; set; }
         public List<Book> BooksList { get; set; }
-
 
         public Client()
         {

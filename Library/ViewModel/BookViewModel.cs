@@ -1,10 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
-using System.Text.RegularExpressions;
-using Library.Model;
 
 namespace Library.ViewModel
 {
@@ -12,10 +9,10 @@ namespace Library.ViewModel
     {
         private readonly Business.IBookService bookService;
 
-        public ObservableCollection<Book> ListOfSearchedBooks { get; set; }
+        public ObservableCollection<Model.Book> ListOfSearchedBooks { get; set; }
 
-        private Book selectedBook;
-        public Book SelectedBook
+        private Model.Book selectedBook;
+        public Model.Book SelectedBook
         {
             get => selectedBook;
             set
@@ -56,7 +53,7 @@ namespace Library.ViewModel
                 return findBookCommand ??= new RelayCommand(obj =>
                     {
                         ListOfSearchedBooks.Clear();
-                        List<Book> searchedList = new List<Book>();
+                        List<Model.Book> searchedList = new List<Model.Book>();
 
                         if (BookSearchFilter == "за бібліотечним номером")
                         {
@@ -81,7 +78,7 @@ namespace Library.ViewModel
         {
             this.bookService = bookService;
 
-            ListOfSearchedBooks = new ObservableCollection<Book>();
+            ListOfSearchedBooks = new ObservableCollection<Model.Book>();
         }
 
         public event PropertyChangedEventHandler PropertyChanged;

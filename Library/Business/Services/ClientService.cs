@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using Library.Model;
 
 namespace Library.Business
 {
@@ -14,7 +13,7 @@ namespace Library.Business
             this.unit = unit;
         }
 
-        public List<Client> FindById(string id)
+        public List<Model.Client> FindById(string id)
         {
             int searchId = -1;
             if (!string.IsNullOrEmpty(id) && id.All(char.IsDigit))
@@ -26,7 +25,7 @@ namespace Library.Business
 
         }
 
-        public List<Client> FindByName(string name)
+        public List<Model.Client> FindByName(string name)
         {
             return unit.ClientRepository.GetAll().ToList().FindAll(x => x.Name == name);
         }

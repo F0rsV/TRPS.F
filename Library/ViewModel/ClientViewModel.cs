@@ -1,9 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
-using Library.Model;
+
 
 namespace Library.ViewModel
 {
@@ -11,7 +10,7 @@ namespace Library.ViewModel
     {
         private readonly Business.IClientService clientService;
 
-        public ObservableCollection<Client> ListOfSearchedClients { get; set; }
+        public ObservableCollection<Model.Client> ListOfSearchedClients { get; set; }
 
         private string clientSearchFilter;
         public string ClientSearchFilter
@@ -36,8 +35,8 @@ namespace Library.ViewModel
             }
         }
         
-        private Client selectedClient;
-        public Client SelectedClient
+        private Model.Client selectedClient;
+        public Model.Client SelectedClient
         {
             get => selectedClient;
             set
@@ -56,7 +55,7 @@ namespace Library.ViewModel
                 return findClientCommand ??= new RelayCommand(obj =>
                     {
                         ListOfSearchedClients.Clear();
-                        List<Client> searchedList = new List<Client>();
+                        List<Model.Client> searchedList = new List<Model.Client>();
 
                         if (ClientSearchFilter == "за номером читацького квитка")
                         {
@@ -78,7 +77,7 @@ namespace Library.ViewModel
         {
             this.clientService = clientService;
 
-            ListOfSearchedClients = new ObservableCollection<Client>();
+            ListOfSearchedClients = new ObservableCollection<Model.Client>();
         }
 
 

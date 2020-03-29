@@ -6,6 +6,5 @@ namespace Library.Business
     {
         List<Model.Client> FindById(string id);
         List<Model.Client> FindByName(string name);
-
     }
 }

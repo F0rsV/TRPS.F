@@ -5,7 +5,7 @@ namespace Library.Data
 {
     public class ClientRepository : IRepository<Model.Client>
     {
-        private LibraryContext context;
+        private readonly LibraryContext context;
 
         public ClientRepository(LibraryContext context)
         {
@@ -15,8 +15,6 @@ namespace Library.Data
         public IEnumerable<Model.Client> GetAll()
         {
             return context.Clients.ToList();
-            //return context.Clients.Include(p => p.BooksList).ToList();
-
         }
     }
 }

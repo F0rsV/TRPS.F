@@ -6,7 +6,7 @@ namespace Library.Data
 {
     public class BookRepository : IRepository<Model.Book>
     {
-        private LibraryContext context;
+        private readonly LibraryContext context;
 
 
         public BookRepository(LibraryContext context)

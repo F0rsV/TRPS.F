@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using Microsoft.EntityFrameworkCore;
-
+﻿using Microsoft.EntityFrameworkCore;
 
 namespace Library.Data
 {
@@ -12,25 +9,10 @@ namespace Library.Data
         public DbSet<Model.Client> Clients { get; set; }
 
 
-        public LibraryContext()
-        {
-/*
-            Database.EnsureDeleted();
-            Database.EnsureCreated();
-*/
-        }
-
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             optionsBuilder.EnableSensitiveDataLogging();
             optionsBuilder.UseSqlServer("Server=(localdb)\\mssqllocaldb;Database=helloappdb;Trusted_Connection=True;");
-        }
-
-        protected override void OnModelCreating(ModelBuilder modelBuilder)
-        {
-            //base.OnModelCreating(modelBuilder); FLUENT API
-            //https://metanit.com/sharp/entityframeworkcore/2.14.php Додавання початкових даних
-
         }
 
     }
