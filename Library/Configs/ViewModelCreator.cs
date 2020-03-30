@@ -9,7 +9,6 @@
             libraryContext = new Data.LibraryContext();
         }
 
-
         public ViewModel.BaseWindowViewModel Create()
         {
             Data.IUnitOfWork unitOfWork = new Data.UnitOfWork(libraryContext);

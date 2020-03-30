@@ -49,8 +49,8 @@
                             <ColumnDefinition></ColumnDefinition>
                         </Grid.ColumnDefinitions>
 
-                        <TextBlock Grid.Row="0" Grid.Column="0" TextAlignment="Center">Результати пошуку клієнта</TextBlock>
-                        <TextBlock Grid.Row="0" Grid.Column="1" TextAlignment="Center">Книги обраного клієнта</TextBlock>
+                        <TextBlock Grid.Row="0" Grid.Column="0" TextAlignment="Center" FontSize="24">Результати пошуку клієнта</TextBlock>
+                        <TextBlock Grid.Row="0" Grid.Column="1" TextAlignment="Center" FontSize="24">Книги обраного клієнта</TextBlock>
 
                         <ListBox Grid.Row="1" Grid.Column="0"
                                  ItemsSource="{Binding ClientViewModel.ListOfSearchedClients}"
@@ -123,7 +123,7 @@
                             <RowDefinition></RowDefinition>
                         </Grid.RowDefinitions>
 
-                        <TextBlock Grid.Row="0" TextAlignment="Center">Результати пошуку книги</TextBlock>
+                        <TextBlock Grid.Row="0" TextAlignment="Center" FontSize="24">Результати пошуку книги</TextBlock>
 
                         <ListBox Grid.Row="1" Margin="20 5 20 10" ItemsSource="{Binding BookViewModel.ListOfSearchedBooks}" SelectedItem="{Binding BookViewModel.SelectedBook}">
                             <ListBox.ItemTemplate>
