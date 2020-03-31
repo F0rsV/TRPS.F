@@ -8,7 +8,7 @@ namespace Library.ViewModel
 {
     public class ClientViewModel : INotifyPropertyChanged
     {
-        private readonly Business.IClientService clientService;
+        private readonly Data.IUnitOfWork unit;
 
         public ObservableCollection<Model.Client> ListOfSearchedClients { get; set; }
 
@@ -59,11 +59,11 @@ namespace Library.ViewModel
 
                         if (ClientSearchFilter == "за номером читацького квитка")
                         {
-                            searchedList = clientService.FindById(ClientSearchInput);
+                            searchedList = unit.ClientRepository.FindById(ClientSearchInput);
                         }
                         else if (ClientSearchFilter == "за ПІБ")
                         {
-                            searchedList = clientService.FindByName(ClientSearchInput);
+                            searchedList = unit.ClientRepository.FindByName(ClientSearchInput);
                         }
 
                         searchedList.ForEach(x => ListOfSearchedClients.Add(x));
@@ -73,9 +73,9 @@ namespace Library.ViewModel
 
 
 
-        public ClientViewModel(Business.IClientService clientService)
+        public ClientViewModel(Data.IUnitOfWork unit)
         {
-            this.clientService = clientService;
+            this.unit = unit;
 
             ListOfSearchedClients = new ObservableCollection<Model.Client>();
         }

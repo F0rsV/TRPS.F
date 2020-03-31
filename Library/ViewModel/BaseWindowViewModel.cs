@@ -1,14 +1,16 @@
-﻿namespace Library.ViewModel
+﻿using Library.Data;
+
+namespace Library.ViewModel
 {
     public class BaseWindowViewModel
     {
         public ClientViewModel ClientViewModel { get; set; }
         public BookViewModel BookViewModel { get; set; }
 
-        public BaseWindowViewModel(Business.IClientService clientService, Business.IBookService bookService)
+        public BaseWindowViewModel(IUnitOfWork unit)
         {
-            ClientViewModel = new ClientViewModel(clientService); ;
-            BookViewModel = new BookViewModel(bookService);
+            ClientViewModel = new ClientViewModel(unit); ;
+            BookViewModel = new BookViewModel(unit);
         }
     }
 }

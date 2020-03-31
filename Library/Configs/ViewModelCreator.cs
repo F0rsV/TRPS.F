@@ -13,10 +13,7 @@
         {
             Data.IUnitOfWork unitOfWork = new Data.UnitOfWork(libraryContext);
 
-            Business.IClientService clientService = new Business.ClientService(unitOfWork);
-            Business.IBookService bookService = new Business.BookService(unitOfWork);
-
-            return new ViewModel.BaseWindowViewModel(clientService, bookService);
+            return new ViewModel.BaseWindowViewModel(unitOfWork);
         }
     }
 }

@@ -2,8 +2,8 @@
 {
     public interface IUnitOfWork
     {
-        IRepository<Model.Book> BookRepository { get; }
-        IRepository<Model.Client> ClientRepository { get; }
+        IBookRepository BookRepository { get; }
+        IClientRepository ClientRepository { get; }
 
         void SaveChanges();
     }

@@ -1,9 +1,10 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace Library.Data
 {
-    public class ClientRepository : IRepository<Model.Client>
+    public class ClientRepository : IClientRepository
     {
         private readonly LibraryContext context;
 
@@ -12,9 +13,21 @@ namespace Library.Data
             this.context = context;
         }
 
-        public IEnumerable<Model.Client> GetAll()
+        public List<Model.Client> FindById(string id)
         {
-            return context.Clients.ToList();
+            int searchId = -1;
+            if (!string.IsNullOrEmpty(id) && id.All(char.IsDigit))
+            {
+                searchId = Convert.ToInt32(id);
+            }
+
+            return context.Clients.ToList().FindAll(x => x.Id == searchId);
         }
+
+        public List<Model.Client> FindByName(string name)
+        {
+            return context.Clients.ToList().FindAll(x => x.Name == name);
+        }
+
     }
 }

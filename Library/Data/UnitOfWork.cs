@@ -3,15 +3,15 @@
     public class UnitOfWork: IUnitOfWork
     {
         private readonly LibraryContext context;
-        private IRepository<Model.Book> bookRepository;
-        private IRepository<Model.Client> clientRepository;
+        private IBookRepository bookRepository;
+        private IClientRepository clientRepository;
 
         public UnitOfWork(LibraryContext context)
         {
             this.context = context;
         }
 
-        public IRepository<Model.Book> BookRepository
+        public IBookRepository BookRepository
         {
             get
             {
@@ -19,7 +19,7 @@
             }
         }
 
-        public IRepository<Model.Client> ClientRepository
+        public IClientRepository ClientRepository
         {
             get
             {

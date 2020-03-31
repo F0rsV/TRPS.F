@@ -7,7 +7,7 @@ namespace Library.ViewModel
 {
     public class BookViewModel : INotifyPropertyChanged
     {
-        private readonly Business.IBookService bookService;
+        private readonly Data.IUnitOfWork unit;
 
         public ObservableCollection<Model.Book> ListOfSearchedBooks { get; set; }
 
@@ -57,15 +57,15 @@ namespace Library.ViewModel
 
                         if (BookSearchFilter == "за бібліотечним номером")
                         {
-                            searchedList = bookService.FindById(BookSearchInput);
+                            searchedList = unit.BookRepository.FindById(BookSearchInput);
                         }
                         else if (BookSearchFilter == "за назвою")
                         {
-                            searchedList = bookService.FindByName(BookSearchInput);
+                            searchedList = unit.BookRepository.FindByName(BookSearchInput);
                         }
                         else if (BookSearchFilter == "за автором")
                         {
-                            searchedList = bookService.FindByAuthor(BookSearchInput);
+                            searchedList = unit.BookRepository.FindByAuthor(BookSearchInput);
                         }
 
                         searchedList.ForEach(x => ListOfSearchedBooks.Add(x));
@@ -74,9 +74,9 @@ namespace Library.ViewModel
         }
 
 
-        public BookViewModel(Business.IBookService bookService)
+        public BookViewModel(Data.IUnitOfWork unit)
         {
-            this.bookService = bookService;
+            this.unit = unit;
 
             ListOfSearchedBooks = new ObservableCollection<Model.Book>();
         }
