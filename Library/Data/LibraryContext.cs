@@ -12,12 +12,8 @@ namespace Library.Data
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            //optionsBuilder.EnableSensitiveDataLogging();
-            // "Server=(localdb)\\mssqllocaldb;Database=helloappdb;Trusted_Connection=True;"
-
             var connectionString = ConfigurationManager.ConnectionStrings["LibraryDbConnection"].ConnectionString;
-            optionsBuilder.UseSqlServer("Server=(localdb)\\mssqllocaldb;Database=helloappdb;Trusted_Connection=True;");
-            ;
+            optionsBuilder.UseSqlServer(connectionString);
         }
 
     }
